@@ -3,7 +3,13 @@ void setup() {
    
   size(700,700);
    background = loadImage("Cotrol Room.jpg");
-   background(background);
+
    
    
  }
+void draw() {
+   background(background);
+
+
+
+}
