@@ -3,6 +3,7 @@ int consle = 0;
 PFont ConsleFont ;
 String textString = "";
 boolean consle1D = false;
+boolean consle2D = false;
 
 
 void setup() {
@@ -19,7 +20,11 @@ void draw() {
  fill(#FFF9B9);
  
  rect(300,79,50,50);
+ if(consle2D)
+ fill(0,255,0);
+ else fill(255,0,0);
  rect(600,100,100,100);
+ 
  if(consle1D)
  fill(0,255,0);
  else fill(255,0,0);
