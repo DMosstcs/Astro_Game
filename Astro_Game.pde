@@ -4,6 +4,7 @@ PFont ConsleFont ;
 String textString = "";
 boolean consle1D = false;
 boolean consle2D = false;
+boolean consle3D = false;
 
 
 void setup() {
@@ -30,6 +31,11 @@ void draw() {
  else fill(255,0,0);
  rect(400,500,100,100);
  
+ if(consle3D)
+ fill(0,255,0);
+ else fill(255,0,0); 
+ rect(50,50,100,100);
+ 
  }
  if(consle == 4) {
      fill(#FFF9B9);
@@ -48,7 +54,12 @@ void draw() {
   fill(0);
   textFont(ConsleFont);
   text("Enter Code",350,100);
-  text(textString,350,350);
+  if(consle1D){
+    text("AsDnY",350,350);
+  }
+  else  {
+    text(textString,350,350);  
+  }
  }
  if(consle == 2) {
    fill(#A2A2A2);
@@ -57,19 +68,36 @@ void draw() {
    textAlign(CENTER,TOP);
    fill(0);
    textFont(ConsleFont);
-   text("Enter Letters",350,350);
-   text(textString,350,350);
+   if(consle2D) {     
+     text("What runs around\nthe whole yard\nwithout moving?",350,350);
+     
+   }
+   else {
+     text("Enter Letters",350,100);
+     text(textString,350,350);
  }
- 
+}
+ if(consle == 3) {
+   fill(#A2A2A2);
+   rect(50,50,600,600);
+   textSize(80);
+   textAlign(CENTER,TOP);
+   fill(0);
+   textFont(ConsleFont);
+   text("Answer Riddle",350,100);
+   text(textString,350,350);
+   
+ }
 }
 void mousePressed() {
   if(mouseX > 300 && mouseX < 350 && mouseY > 79 && mouseY < 129) consle = 4;
   if(mouseX > 400 && mouseX < 500 && mouseY > 500 && mouseY < 600) consle = 1;
-  if(mouseX > 600 && mouseX < 100 && mouseY > 200 && mouseY < 100) consle = 2;
+  if(mouseX > 600 && mouseX < 700 && mouseY > 100 && mouseY < 200) consle = 2;
+  if(mouseX > 50 && mouseX < 150 && mouseY > 100 && mouseY < 150) consle =3;
+  
 }
 void keyPressed() {
-  if(consle ==1) {
-    
+  if(consle ==1) {    
   
     if(key != CODED){
       String aloud = "0123456789";
@@ -86,5 +114,36 @@ void keyPressed() {
       }
     }
     
-  }  
+  }
+  if(consle == 4){
+    consle =0;      
+  }
+  if(consle ==2){
+    String aloud ="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJLZXCVBNM";
+    String keyString = "" + key;
+    if(aloud.contains(keyString))
+      textString += keyString;
+     else if (key == BACKSPACE)
+       textString = textString.substring(0,textString.length()-1);
+      else if(key == ENTER || key == RETURN){
+        if(textString.equals("AsDnY")) consle2D = true;
+        textString = "";
+        consle = 0;
+      }
+      
+  }
+    if(consle ==3){
+    String aloud ="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJLZXCVBNM";
+    String keyString = "" + key;
+    if(aloud.contains(keyString))
+      textString += keyString;
+     else if (key == BACKSPACE)
+       textString = textString.substring(0,textString.length()-1);
+      else if(key == ENTER || key == RETURN){
+        if(textString.toLowerCase().equals("fence")) consle3D = true;
+        
+        textString = "";
+        consle = 0;
+      }
+    }
 }
