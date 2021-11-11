@@ -45,7 +45,8 @@ void mousePressed() {
     if(mouseX > 600 && mouseX < 700 && mouseY > 400 && mouseY < 500) consle = 2;
     if(mouseX > 600 && mouseX < 700 && mouseY > 600 && mouseY < 700)  consle = 3; 
        if(consle == 3){
-         
+         if(mouseX > 350 && mouseX < 550 && mouseY > 500 && mouseY < 703) consle = 0;
+           
        }
          
    
