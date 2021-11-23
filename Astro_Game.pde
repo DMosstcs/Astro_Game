@@ -29,6 +29,8 @@ void draw() {
   }
   if (Levels == 2)
     drawroom2();
+  if(Levels == 3)
+     drawroom3();
 }
 void mousePressed() {
   if (Levels ==  1) {
@@ -231,4 +233,16 @@ void drawroom2() {
     ellipse(200, 350, 200, 200);
     ellipse(350, 500, 200, 203);
   }
+  if(consle1D && consle2D && consle3D){
+    Levels = 3;
+    
 }
+}
+  void drawroom3() {
+    background(#9B9B9B);
+    fill(0);
+    textAlign(CENTER,TOP);
+    textSize(100);
+    text("You Have \n Escaped!!",350,250);
+    
+  }
