@@ -29,8 +29,8 @@ void draw() {
   }
   if (Levels == 2)
     drawroom2();
-  if(Levels == 3)
-     drawroom3();
+  if (Levels == 3)
+    drawroom3();
 }
 void mousePressed() {
   if (Levels ==  1) {
@@ -44,9 +44,10 @@ void mousePressed() {
     if (mouseX > 600 && mouseX < 700 && mouseY > 400 && mouseY < 500) consle = 2;
     if (mouseX > 600 && mouseX < 700 && mouseY > 600 && mouseY < 700)  consle = 3; 
     if (consle == 3) {
-      if (mouseX > 350 && mouseX < 550 && mouseY > 500 && mouseY < 703) {consle = 0;
-      consle3D = true;
-    }
+      if (mouseX > 350 && mouseX < 550 && mouseY > 500 && mouseY < 703) {
+        consle = 0;
+        consle3D = true;
+      }
     }
   }
 }
@@ -168,23 +169,23 @@ void drawroom1() {
 
 void drawroom2() {
 
- 
-  if(consle1D)
-    fill(0,255,0);
+
+  if (consle1D)
+    fill(0, 255, 0);
   else
-    fill(255,0,0);
-   rect(500, 300, 100, 100);
- 
-  if(consle2D)
-    fill(0,255,0);
+    fill(255, 0, 0);
+  rect(500, 300, 100, 100);
+
+  if (consle2D)
+    fill(0, 255, 0);
   else
-    fill(255,0,0);
+    fill(255, 0, 0);
   rect(600, 400, 100, 100);
-   
-   if(consle3D)
-    fill(0,255,0);
+
+  if (consle3D)
+    fill(0, 255, 0);
   else
-    fill(255,0,0);
+    fill(255, 0, 0);
   rect(600, 600, 100, 100);
 
 
@@ -197,17 +198,15 @@ void drawroom2() {
     fill(0);
     textFont(ConsleFont);
     text("Conect Wires", 350, 100);
-     if(mousePressed && abs(mouseX - (50 + WireWidth)) < 30 && mouseY > 400 && mouseY < 450) { 
-     WireWidth = mouseX -50;
-     
-     
-     }
-     rect(50,400,WireWidth,50);
-     rect(600,400,50,50);
-    if(WireWidth >= 500){
-    consle1D = true;
-     consle = 0;
-    }    
+    if (mousePressed && abs(mouseX - (50 + WireWidth)) < 30 && mouseY > 400 && mouseY < 450) { 
+      WireWidth = mouseX -50;
+    }
+    rect(50, 400, WireWidth, 50);
+    rect(600, 400, 50, 50);
+    if (WireWidth >= 500) {
+      consle1D = true;
+      consle = 0;
+    }
   }
   if (consle == 2) {
     fill(#A2A2A2);
@@ -233,16 +232,14 @@ void drawroom2() {
     ellipse(200, 350, 200, 200);
     ellipse(350, 500, 200, 203);
   }
-  if(consle1D && consle2D && consle3D){
+  if (consle1D && consle2D && consle3D) {
     Levels = 3;
-    
-}
-}
-  void drawroom3() {
-    background(#9B9B9B);
-    fill(0);
-    textAlign(CENTER,TOP);
-    textSize(100);
-    text("You Have \n Escaped!!",350,250);
-    
   }
+}
+void drawroom3() {
+  background(#9B9B9B);
+  fill(0);
+  textAlign(CENTER, TOP);
+  textSize(100);
+  text("You Have \n Escaped!!", 350, 250);
+}
